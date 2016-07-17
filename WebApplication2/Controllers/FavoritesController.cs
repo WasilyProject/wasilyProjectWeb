@@ -19,6 +19,7 @@ namespace WebApplication2.Controllers
         {
             var favorite = db.Favorite.Include(f => f.user).Include(f => f.user1);
             return View(favorite.ToList());
+            // helloootest
         }
 
         // GET: Favorites/Details/5

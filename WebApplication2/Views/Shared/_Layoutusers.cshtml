@@ -1,0 +1,136 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>  Call Recording System </title>
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+    <link rel="stylesheet" type="text/css" href="~/style_whmcs-blue.css">
+    <link rel="stylesheet" type="text/css" href="~/css/slicebox.css">
+    <link rel="stylesheet" type="text/css" href="~/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="~/css/skins/blue.css">
+    <script type="text/javascript" src="~/js/jquery.js"></script>
+</head>
+<body>
+
+    @if (Session["username"] == null)
+    {
+        Response.Redirect(Url.Action("index", "home", null));
+    }
+    <div id="Wrapper">
+        <div id="Wrapper_Content">
+            <div id="Container">
+                <header>
+                    <div id="Header">
+                        <div class="Logo"></div>
+                        <div class="Social_Icon">
+                            <ul>
+                                <li class="facebook"><a href="https://facebook.com/callrecording.team" target="_blank" title="facebook"></a></li>
+                                <li class="twitter"><a href="https://twitter.com/TeamRecording" target="_blank" title="twitter"></a></li>
+                                <li class="youtube"><a href="https://www.youtube.com/channel/UCra7xJUZdBe1Z4zQzwjcyRQ" target="_blank" title="youtube"></a></li>
+                            </ul>
+                        </div>
+                        <!--/Social_Icon-->
+                        <div class="Live_Support"><a href="#"><img src="images/Live_Support.jpg" alt=""></a></div>
+                        <nav>
+                            <div class="Menu">
+                                <div class="Menu_right"><a href="http://127.0.0.1/projects/index.php"></a></div>
+                                <ul>
+                                    <li>
+                                        <a href="~/DealOffers/Create">عرض صفقة جديدة</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/DealOffers">استعراض الصفقات المنشأة</a>
+                                    </li>
+
+                                    <li><a href="http://127.0.0.1/projects/support.php">الدعم الفني</a></li>
+                                    <li><a href="~/users/search">البحث</a></li>
+
+                                    <li><a href="http://127.0.0.1/projects/aboutUs.php"> من نحن     </a></li>
+                                    <li><a href="http://127.0.0.1/projects/ContactUs.php">إتصل بنا</a></li>
+                                </ul>
+                                <div class="Menu_left"><a href="#">English</a></div>
+                            </div>
+                        </nav>
+                        <!--/Menu-->
+                    </div>
+                </header>
+                <!--/Header-->
+                <div id="Body">
+                    
+                    <div id="Content">
+                        @RenderBody()
+                    
+                 </div>
+                    <div id="Sidebar" style="height:300px;width:150px;">
+                        <div class="Widget" style="opacity:0">
+                            
+
+                            <div style="margin-right:12px;margin-top:4px;width: 120px; height: 110px; position: relative; opacity:0;   border: 0px solid #b8b8b8; " data-controltype="image">
+
+                            </div>
+                            <div class="Widget_Login">
+
+                                <ul>
+
+                                </ul>
+
+                            </div>
+                            <!--/Widget_Login-->
+                        </div>
+                        </div>
+
+                        <!--/Body-->
+                        <div id="Footer">
+                            <footer>
+                                <div class="Footer_About">
+                                    <h2>من نحن  </h2>
+                                    <p> نحن مجموعة من المطورين حديثي التخرج من جامعة الملك سعود ، كلية علوم الحاسب والمعلومات قسم هندسة البرمجيات عام 2015 ، قمنا بتطوير مشروع التخرج والعمل عليه لإنشاء مشروع خاص بنا </p>
+                                </div>
+                                <!--/Footer_About-->
+
+                                <div class="Footer_Links">
+                                    <h2>خدماتنـا  </h2>
+                                    <ul>
+                                        <li><a href="http://127.0.0.1/projects/Dawnload.php">تنزيل التطبيق	</a></li>
+                                        <li><a href="http://127.0.0.1/projects/server.php">الخدمات والعروض</a></li>
+                                        <li><a href="http://127.0.0.1/projects/support.php">الدعم الفني </a></li>
+                                        <li><a href="http://127.0.0.1/projects/aboutUs.php">من نحن </a></li>
+                                        <li><a href="http://127.0.0.1/projects/ContactUs.php">اتصل بنا </a></li>
+                                    </ul>
+                                </div>
+                                <!--/Footer_Links-->
+                                <div class="Footer_Contact">
+                                    <h2>اتصل بنا </h2>
+                                    <p class="email">CallRecording.Team@gmail.com</p>
+                                    <p class="phone">+966548780004</p>
+                                </div>
+                                <!--/Footer_Contact-->
+                                <div class="Footer_Bottom">
+                                    <p>جميع الحقوق محفوظة لـ Mo.3 &reg; &copy;</p>
+                                    <ul>
+                                        <li><a href="#">طرق الدفع</a> | </li>
+                                        <li><a href="#">اسئله ما قبل الخدمة</a> | </li>
+                                        <li><a href="http://127.0.0.1/projects/aboutUs.php">من نحن</a> | </li>
+                                        <li><a href="http://127.0.0.1/projects/ContactUs.php">إتصل بنا</a></li>
+                                    </ul>
+                                </div>
+                                <!--/Footer_Bottom-->
+                            </footer>
+                        </div>
+                        <!--/Footer-->
+                    </div>
+            <!--/Container-->
+        </div>
+        <!--/Wrapper_Conten-->
+    </div>
+    <!--/Wrapper-->
+    <script type="text/javascript" src="~/js/jquery_easing.js"></script>
+    <script type="text/javascript" src="~/js/jcarousel.js"></script>
+    <script type="text/javascript" src="~/js/slide-show.js"></script>
+    <script type="text/javascript" src="~/js/toll_tip.js"></script>
+    <script type="text/javascript" src="~/js/modernizr.custom.46884.js"></script>
+    <script type="text/javascript" src="~/js/jquery.slicebox.js"></script>
+    <script type="text/javascript" src="~/js/jquery.icheck.js"></script>
+    <script type="text/javascript" src="~/js/tatwerat.js"></script>
+</body>
+</html>

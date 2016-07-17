@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApplication2.Models.Favorite>
+
+@{
+    ViewBag.Title = "قائمة المفضليين";
+    Layout = "~/Views/Shared/_Layoutusers.cshtml";
+}
+
+<h2>قائمة المفضليين</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            الرقم التسلسلي
+        </th>
+        <th width="500px">
+            اسم المستخدم المُفضل لديك
+        </th>
+        <th>اجراءات</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Favoriteid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user.Username)
+        </td>
+        <td>
+            @Html.ActionLink("زيارة صفحته", "Details", new {  id=item.user.UserID }) |
+           
+        </td>
+    </tr>
+}
+
+</table>

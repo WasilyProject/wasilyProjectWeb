@@ -1,0 +1,122 @@
+﻿@model WebApplication2.Models.DealOffer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DealOffer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Currency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Currency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceiveMethod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceiveMethod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeliveryMethod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeliveryMethod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flexibility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flexibility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user.Username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DealOfferID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

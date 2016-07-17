@@ -1,0 +1,105 @@
+﻿@model IEnumerable<WebApplication2.Models.DealOffer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Currency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceiveMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveryMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flexibility)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.Username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Currency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiveMethod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryMethod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flexibility)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user.Username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DealOfferID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DealOfferID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DealOfferID })
+        </td>
+    </tr>
+}
+
+</table>

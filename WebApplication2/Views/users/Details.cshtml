@@ -4,72 +4,131 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layoutusers.cshtml";
 }
+@if (TempData["Success"] != null)
+{
+    <p class="alert alert-success">@TempData["Success"].ToString()</p>
+}
+@if (TempData["fail"] != null)
+{
+    <p class="alert alert-warning">@TempData["fail"].ToString()</p>
+}
+<head>
+  <style> .myButton { background-color:#7892c2; -moz-border-radius:19px; -webkit-border-radius:19px; border-radius:19px; display:inline-block; cursor:pointer; color:#ffffff; font-family:Arial; font-size:13px; padding:7px 16px; text-decoration:none; text-shadow:0px 1px 0px #000988; } .myButton:hover { background-color:#476e9e; } .myButton:active { position:relative; top:1px; }</style>
+</head>
 
-<h2>Details</h2>
-
-<div>
-    <h4>user</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Picture)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Picture)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Country)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Mobile)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mobile)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div id="Body">
+    <div id="Sidebar">
+        <div class="Widget">
+            <h2 class="login">استعراض ملف @Html.DisplayFor(model => model.Username) </h2>
+
+            <div style="/* margin-right:12px; */margin-top:4px;/* width: 120px; */height: 110px;position: relative;background-color: #fbfbfb; solid #b8b8b8;" >
+                
+                <img src="http://d.fastcompany.net/multisite_files/fastcompany/fc_files/profile/2219225-austin-carr-profile.jpg" alt="image" style="position:     absolute; margin-left: 0px; margin-top: -18px;margin-right:0px;width: 120px; height: 120px; border: 1.5px">
+             
+
+               @if (TempData["result"].ToString() == "false")
+               {
+                <div style="margin-right:140px;margin-top:3px">
+                    @Html.ActionLink("تفضيل العضو", "FavoriteSomeOne",new { userid = Model.UserID },new { @class = "myButton" })
+                </div>
+               }
+               else
+               {
+                <div style="margin-right:140px;margin-top:3px">
+                    @Html.ActionLink("الغاء تفضيل", "RemoveFavorite", new { userid = Model.UserID }, new { @class = "myButton" })
+                </div>
+               }
+                </div>
+            <div class="Widget_Login">
+
+                <ul>
+                    <li><a>التقييم: @Html.DisplayFor(model => model.Rating)</a></li>
+                    <li><a>الصفقات المنفذة{number}</a></li>
+                    <li><a>الصفقات الغير منفذة{number}</a></li>
+                    <li>@Html.ActionLink("مفضلة العضو", "ShowUserFavorite", new { userid = Model.UserID })</li>
+
+                 
+
+
+                </ul>
+
+            </div>
+            <!--/Widget_Login-->
+        </div>
+
+        <!--/Widget-->
+        <!--/Sidebar-->
+    </div>
+    <center>
+        <div>
+            <h4>user</h4>
+            <hr />
+            <table class="table table-striped table-hover table-bordered table-condensed">
+
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Username)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Password)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Picture)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.City)
+                    </th>
+
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Country)
+                    </th>
+
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Mobile)
+                    </th>
+
+                </tr>
+
+                <tr>
+                    <th>
+                        @Html.DisplayFor(model => model.Username)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(model => model.Password)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(model => model.Picture)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(model => model.City)
+                    </th>
+
+                    <th>
+                        @Html.DisplayFor(model => model.Country)
+                    </th>
+
+                    <th>
+                        @Html.DisplayFor(model => model.Mobile)
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+        
+            </center>

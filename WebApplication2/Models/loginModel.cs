@@ -8,7 +8,7 @@ namespace WebApplication2.Models
 {
     public class loginModel
     {
-     
+        
         [Required]
         [Display(Name = "Username")]
         public string Username { get; set; }

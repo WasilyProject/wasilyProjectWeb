@@ -21,19 +21,20 @@
         <th>اجراءات</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Favoriteid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.user.Username)
-        </td>
-        <td>
-            @Html.ActionLink("زيارة صفحته", "Details", new {  id=item.user.UserID }) |
-           
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Favoriteid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.Username)
+            </td>
+            <td>
+                @Html.ActionLink("زيارة صفحته", "Details", new { id = item.user.UserID }) |
+
+            </td>
+        </tr>
+    }
 
 </table>

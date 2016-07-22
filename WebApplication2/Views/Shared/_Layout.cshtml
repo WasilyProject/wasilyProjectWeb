@@ -69,6 +69,7 @@
                     <div id="Sidebar">
                         <div class="Widget">
                             <h2 class="login">تسجيل الدخول  <span>-</span></h2>
+
                             <div class="Widget_Login">
 
                                 @using (Html.BeginForm())
@@ -93,6 +94,7 @@
                                         <div class="form-group">
                                             <div class="col-md-offset-2 col-md-10">
                                                 <input type="submit" class="btn btn-primary" value="دخول" />
+                                                @Html.ActionLink("تسجيل", "Register",null, new {@class="btn btn-primary"})
 
                                             </div>
                                         </div>

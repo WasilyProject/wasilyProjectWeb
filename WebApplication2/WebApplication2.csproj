@@ -251,6 +251,8 @@
     <Content Include="images\icons\yes.png" />
     <Content Include="images\instul.png" />
     <Content Include="images\iPhone.jpg" />
+    <Content Include="images\lastdael.png" />
+    <Content Include="images\lastdael2.png" />
     <Content Include="images\lestenOrDelete.png" />
     <Content Include="images\lestenRecord.png" />
     <Content Include="images\links_widget_li.jpg" />
@@ -263,6 +265,7 @@
     <Content Include="images\Menu_li.jpg" />
     <Content Include="images\Menu_Right.jpg" />
     <Content Include="images\ModifyUser.png" />
+    <Content Include="images\newmember.png" />
     <Content Include="images\NewRecord.png" />
     <Content Include="images\newuser.png" />
     <Content Include="images\newuser1.png" />
@@ -444,6 +447,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\users\ShowUserFavorite.cshtml" />
+    <Content Include="Views\Shared\_Layoutadmin.cshtml" />
+    <Content Include="Views\Admins\ViewDael.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

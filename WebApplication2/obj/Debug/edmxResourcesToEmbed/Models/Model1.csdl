@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="wasilyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommentConent" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CommentUserID" Type="Int32" />
+    <Property Name="UserIDProfile" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_Comment_user" FromRole="Comment" ToRole="user" />
+    <NavigationProperty Name="user1" Relationship="Self.FK_Comment_user1" FromRole="Comment" ToRole="user" />
+    <NavigationProperty Name="Suggestion" Relationship="Self.FK_Suggestion_Comment" FromRole="Comment" ToRole="Suggestion" />
+  </EntityType>
+  <EntityType Name="Deal">
+    <Key>
+      <PropertyRef Name="DealID" />
+    </Key>
+    <Property Name="DealID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="RecipientNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RecipientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dimension" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contentt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserDealOfferIDMoasel" Type="Int32" />
+    <Property Name="DealOfferID" Type="Int32" />
+    <Property Name="FirstPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SecoundPssword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserIDMorsel" Type="Int32" />
+    <Property Name="TypeOfDeal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DealOffer" Relationship="Self.FK_Deal_DealOffer" FromRole="Deal" ToRole="DealOffer" />
+    <NavigationProperty Name="DealOffer1" Relationship="Self.FK_Deal_DealOffer1" FromRole="Deal" ToRole="DealOffer" />
+    <NavigationProperty Name="user" Relationship="Self.FK_Deal_user" FromRole="Deal" ToRole="user" />
+  </EntityType>
+  <EntityType Name="DealOffer">
+    <Key>
+      <PropertyRef Name="DealOfferID" />
+    </Key>
+    <Property Name="DealOfferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="ArrivalCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartureCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ArrivalTime" Type="Time" Precision="7" />
+    <Property Name="DepartureTime" Type="Time" Precision="7" />
+    <Property Name="ArrivalDate" Type="DateTime" Precision="0" />
+    <Property Name="DepartureDate" Type="DateTime" Precision="0" />
+    <Property Name="ReceiveMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Flexibility" Type="Boolean" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="Deal" Relationship="Self.FK_Deal_DealOffer" FromRole="DealOffer" ToRole="Deal" />
+    <NavigationProperty Name="Deal1" Relationship="Self.FK_Deal_DealOffer1" FromRole="DealOffer" ToRole="Deal" />
+    <NavigationProperty Name="user" Relationship="Self.FK_DealOffer_user" FromRole="DealOffer" ToRole="user" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpID" />
+    </Key>
+    <Property Name="EmpID" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Favorite">
+    <Key>
+      <PropertyRef Name="Favoriteid" />
+    </Key>
+    <Property Name="Favoriteid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="useridmofdel" Type="Int32" Nullable="false" />
+    <Property Name="useridmofadel" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_Favorite_user" FromRole="Favorite" ToRole="user" />
+    <NavigationProperty Name="user1" Relationship="Self.FK_Favorite_user1" FromRole="Favorite" ToRole="user" />
+  </EntityType>
+  <EntityType Name="Suggestion">
+    <Key>
+      <PropertyRef Name="SuggestionID" />
+    </Key>
+    <Property Name="SuggestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CommentID" Type="Int32" />
+    <Property Name="UserIDAlmushtki" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="Comment" Relationship="Self.FK_Suggestion_Comment" FromRole="Suggestion" ToRole="Comment" />
+    <NavigationProperty Name="user" Relationship="Self.FK_Suggestion_user" FromRole="Suggestion" ToRole="user" />
+    <NavigationProperty Name="user1" Relationship="Self.FK_Suggestion_user1" FromRole="Suggestion" ToRole="user" />
+    <NavigationProperty Name="user2" Relationship="Self.FK_Suggestion_user2" FromRole="Suggestion" ToRole="user" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rating" Type="Int32" />
+    <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_user" FromRole="user" ToRole="Comment" />
+    <NavigationProperty Name="Comment1" Relationship="Self.FK_Comment_user1" FromRole="user" ToRole="Comment" />
+    <NavigationProperty Name="Deal" Relationship="Self.FK_Deal_user" FromRole="user" ToRole="Deal" />
+    <NavigationProperty Name="DealOffer" Relationship="Self.FK_DealOffer_user" FromRole="user" ToRole="DealOffer" />
+    <NavigationProperty Name="Favorite" Relationship="Self.FK_Favorite_user" FromRole="user" ToRole="Favorite" />
+    <NavigationProperty Name="Favorite1" Relationship="Self.FK_Favorite_user1" FromRole="user" ToRole="Favorite" />
+    <NavigationProperty Name="Suggestion" Relationship="Self.FK_Suggestion_user" FromRole="user" ToRole="Suggestion" />
+    <NavigationProperty Name="Suggestion1" Relationship="Self.FK_Suggestion_user1" FromRole="user" ToRole="Suggestion" />
+    <NavigationProperty Name="Suggestion2" Relationship="Self.FK_Suggestion_user2" FromRole="user" ToRole="Suggestion" />
+  </EntityType>
+  <Association Name="FK_Comment_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="UserIDProfile" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_user1">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="CommentUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suggestion_Comment">
+    <End Role="Comment" Type="Self.Comment" Multiplicity="0..1" />
+    <End Role="Suggestion" Type="Self.Suggestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="CommentID" />
+      </Principal>
+      <Dependent Role="Suggestion">
+        <PropertyRef Name="CommentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deal_DealOffer">
+    <End Role="DealOffer" Type="Self.DealOffer" Multiplicity="0..1" />
+    <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DealOffer">
+        <PropertyRef Name="DealOfferID" />
+      </Principal>
+      <Dependent Role="Deal">
+        <PropertyRef Name="DealOfferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deal_DealOffer1">
+    <End Role="DealOffer" Type="Self.DealOffer" Multiplicity="0..1" />
+    <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DealOffer">
+        <PropertyRef Name="DealOfferID" />
+      </Principal>
+      <Dependent Role="Deal">
+        <PropertyRef Name="UserDealOfferIDMoasel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deal_user">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Deal">
+        <PropertyRef Name="UserIDMorsel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealOffer_user">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="DealOffer" Type="Self.DealOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="DealOffer">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favorite_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="useridmofdel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favorite_user1">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="Favorite" Type="Self.Favorite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Favorite">
+        <PropertyRef Name="useridmofadel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suggestion_user">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="Suggestion" Type="Self.Suggestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Suggestion">
+        <PropertyRef Name="UserIDAlmushtki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suggestion_user1">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="Suggestion" Type="Self.Suggestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Suggestion">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suggestion_user2">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="Suggestion" Type="Self.Suggestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Suggestion">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="wasilyEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin" EntityType="Self.Admin" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" />
+    <EntitySet Name="Deal" EntityType="Self.Deal" />
+    <EntitySet Name="DealOffer" EntityType="Self.DealOffer" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="Favorite" EntityType="Self.Favorite" />
+    <EntitySet Name="Suggestion" EntityType="Self.Suggestion" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <AssociationSet Name="FK_Comment_user" Association="Self.FK_Comment_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_user1" Association="Self.FK_Comment_user1">
+      <End Role="user" EntitySet="user" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suggestion_Comment" Association="Self.FK_Suggestion_Comment">
+      <End Role="Comment" EntitySet="Comment" />
+      <End Role="Suggestion" EntitySet="Suggestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deal_DealOffer" Association="Self.FK_Deal_DealOffer">
+      <End Role="DealOffer" EntitySet="DealOffer" />
+      <End Role="Deal" EntitySet="Deal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deal_DealOffer1" Association="Self.FK_Deal_DealOffer1">
+      <End Role="DealOffer" EntitySet="DealOffer" />
+      <End Role="Deal" EntitySet="Deal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deal_user" Association="Self.FK_Deal_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="Deal" EntitySet="Deal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealOffer_user" Association="Self.FK_DealOffer_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="DealOffer" EntitySet="DealOffer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favorite_user" Association="Self.FK_Favorite_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="Favorite" EntitySet="Favorite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favorite_user1" Association="Self.FK_Favorite_user1">
+      <End Role="user" EntitySet="user" />
+      <End Role="Favorite" EntitySet="Favorite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suggestion_user" Association="Self.FK_Suggestion_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="Suggestion" EntitySet="Suggestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suggestion_user1" Association="Self.FK_Suggestion_user1">
+      <End Role="user" EntitySet="user" />
+      <End Role="Suggestion" EntitySet="Suggestion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suggestion_user2" Association="Self.FK_Suggestion_user2">
+      <End Role="user" EntitySet="user" />
+      <End Role="Suggestion" EntitySet="Suggestion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

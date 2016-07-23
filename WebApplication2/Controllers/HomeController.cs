@@ -22,11 +22,24 @@ namespace WebApplication2.Controllers
             {
                 if (valid(model.Username, model.Password))
                 {
-                    
+
                     return RedirectToAction("index", "users");
                 }
+
+                if(ModelState.IsValid)
+                {
+                    if (validAdmin(model.Username, model.Password))
+                    {
+
+                        return RedirectToAction("index", "Admins");
+                    }
+                }
+
                 ModelState.AddModelError("informationwrong", "اسم المستخدم او كلمة المرور غير صحيحة");
             }
+               
+                 
+            
             return View(model);
 
         }
@@ -46,6 +59,24 @@ namespace WebApplication2.Controllers
             }
 
             return isvalid; 
+        }
+
+
+        public Boolean validAdmin(string username, string password)
+        {
+            bool isvalid = false;
+            var usernow = db.Admin.FirstOrDefault(u => u.username == username);
+            if (usernow != null)
+            {
+                if (usernow.Password == password)
+                {
+                    isvalid = true;
+                    Session["username"] = usernow.username;
+                    Session["AdminID"] = usernow.AdminID;
+                }
+            }
+
+            return isvalid;
         }
 
 

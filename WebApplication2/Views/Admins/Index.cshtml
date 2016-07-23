@@ -1,57 +1,56 @@
-﻿@model IEnumerable<WebApplication2.Models.Admin>
+﻿@model WebApplication2.Models.Admin
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mobile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.username)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mobile)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.username)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AdminID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AdminID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AdminID })
-        </td>
-    </tr>
+@if (Session["AdminID"] == null)
+{
+    Response.Redirect(Url.Action("index", "home", null));
 }
 
-</table>
+</div>
+
+
+
+
+
+
+<div id="Content">
+
+    <div id="Our_Services">
+        <div class="Our_Services">
+            <ul>
+                <li class="how_share">
+                    <a href="#"></a>
+                    <div class="img"></div>
+                    <h2>الأعضاء الجدد</h2>
+                    <br>
+                    <p> لا يوجد عضو جديد </p>
+
+                </li>
+                <li class="how_win">
+                    <a href="#"></a>
+                    <div class="img"></div>
+                    <h2> آخر الصفقات </h2>
+                    <br>
+                    <p> لا توجد صفقات  </p>
+                </li>
+                <li class="how_adv">
+                    <a href="#"></a>
+                    <div class="img"></div>
+                    <h2>الموظفين المتصلين</h2>
+                    <br>
+                    <p>لا يوجد موظفين متصلين </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+

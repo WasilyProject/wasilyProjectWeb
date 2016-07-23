@@ -1,12 +1,63 @@
 ﻿@model WebApplication2.Models.Admin
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+
+@if (Session["AdminID"] == null)
+{
+    Response.Redirect(Url.Action("index", "home", null));
+}
+
+
+<div id="Content">
+
+    <div id="nav-dots" class="nav-dots"> <span class="nav-dot-current"></span> <span></span> <span></span> <span></span> <span></span></div>
+    <div class="slider_shadow"></div>
+    <div class="spacer_content">
+
+        <h1> يرجى اختيار السجلات المراد حذفها:</h1>
+        <table class="pure-table-odd">
+            <thead>
+                <tr>
+                    <th>الرقم التسلسلي</th>
+                    <th>اسم المستخدم</th>
+                    <th>البريد الالكتروني</th>
+                    <th>رقم الجوال</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+
+
+
+            <tbody>
+                <form action="modify.php" method="post">
+                    <tr class="pure-table-odd">
+                        <td>@Html.DisplayNameFor(model => model.Password)</td>
+                        <td>@Html.DisplayFor(model => model.Password)</td>
+                        <td>@Html.DisplayNameFor(model => model.City)</td>
+                        <td>@Html.DisplayFor(model => model.City)</td>
+                        <td><a href='modify.php?id=$ID'> حذف </a>></td>
+                    </tr>
+                </form>
+
+
+
+
+            </tbody>
+        </table>
+
+
+
+
+    </div>
+</div>
+
+<!--/Content-->
 <div>
     <h4>Admin</h4>
     <hr />

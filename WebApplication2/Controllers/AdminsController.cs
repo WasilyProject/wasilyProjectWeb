@@ -17,7 +17,7 @@ namespace WebApplication2.Controllers
         // GET: Admins
         public ActionResult Index()
         {
-            return View(db.Admin.ToList());
+            return View();
         }
 
         // GET: Admins/Details/5
@@ -122,6 +122,21 @@ namespace WebApplication2.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        public ActionResult ViewDael(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Admin admin = db.Admin.Find(id);
+            if (admin == null)
+            {
+                return HttpNotFound();
+            }
+            return View(admin);
         }
     }
 }

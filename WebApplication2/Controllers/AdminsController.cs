@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication2.Models;
+using System.Web.Security;
+
 
 namespace WebApplication2.Controllers
 {
@@ -17,7 +19,9 @@ namespace WebApplication2.Controllers
         // GET: Admins
         public ActionResult Index()
         {
-            return View(db.Admin.ToList());
+            int adminid = Int32.Parse(Session["userid"].ToString());
+            Admin admin = db.Admin.Where(u => u.AdminID == adminid).FirstOrDefault();
+            return View(admin);
         }
 
         // GET: Admins/Details/5

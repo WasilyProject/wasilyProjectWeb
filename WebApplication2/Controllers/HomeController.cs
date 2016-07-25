@@ -42,6 +42,8 @@ namespace WebApplication2.Controllers
                     isvalid = true;
                     Session["username"] = usernow.Username;
                     Session["userid"] = usernow.UserID;
+                    Session["userid"] = "user";
+
                 }
             }
 
@@ -84,7 +86,42 @@ namespace WebApplication2.Controllers
             
         }
 
+        [HttpGet]
+        public ActionResult LoginAdmin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult LoginAdmin(loginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (validadmin(model.Username, model.Password))
+                {
 
+                    return RedirectToAction("index", "Admins");
+                }
+                ModelState.AddModelError("informationwrong", "اسم المستخدم او كلمة المرور غير صحيحة");
+            }
+            return View(model);
+        }
+        public Boolean validadmin(string username, string password)
+        {
+            bool isvalid = false;
+            Admin usernow = db.Admin.FirstOrDefault(u => u.username == username);
+            if (usernow != null)
+            {
+                if (usernow.Password == password)
+                {
+                    isvalid = true;
+                    Session["username"] = usernow.username;
+                    Session["userid"] = usernow.AdminID;
+                    Session["type"] = "admin";
+                }
+            }
+
+            return isvalid;
+        }
 
     }
 }

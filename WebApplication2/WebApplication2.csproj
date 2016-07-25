@@ -454,6 +454,7 @@
     <Content Include="Views\Shared\_Layoutadmin.cshtml" />
     <Content Include="Views\Admins\ViewDael.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\LoginAdmin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

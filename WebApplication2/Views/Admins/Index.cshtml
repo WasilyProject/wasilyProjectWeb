@@ -1,7 +1,8 @@
-﻿@model IEnumerable<WebApplication2.Models.Admin>
+﻿@model WebApplication2.Models.Admin
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layoutusers.cshtml";
 }
 
 <h2>Index</h2>
@@ -29,29 +30,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Password)
+            @Html.DisplayFor(model => model.Password) 
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.City)
+            @Html.DisplayFor(model => model.City)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Country)
+            @Html.DisplayFor(model => model.Country)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Mobile)
+            @Html.DisplayFor(model => model.Mobile)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.username)
+            @Html.DisplayFor(model => model.username)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AdminID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AdminID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AdminID })
+            @Html.ActionLink("Edit", "Edit", new { id=@Model.AdminID }) |
+            @Html.ActionLink("Details", "Details", new { id= @Model.AdminID }) |
+            @Html.ActionLink("Delete", "Delete", new { id= @Model.AdminID })
         </td>
     </tr>
-}
+
 
 </table>

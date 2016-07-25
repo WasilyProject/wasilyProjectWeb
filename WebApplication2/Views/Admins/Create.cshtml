@@ -1,43 +1,11 @@
 ﻿@model WebApplication2.Models.Admin
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+    ViewBag.Title = "Create";
 }
 
+<h2>Create</h2>
 
-
-@if (Session["AdminID"] == null)
-{
-    Response.Redirect(Url.Action("index", "home", null));
-}
-
-
-
-<div id="Content">
-
-
-            <h2> الرجاء تعبئة جميع الحقول أدناه لإضافة مستخدم جديد: </h2>
-            <form action="DoAddUser.php" method="post">
-                <input type="text" name="name" class="login_email" placeholder="اسم المستخدم ..."><br>
-                <input type="text" name="mobileNumber" class="login_email" placeholder="رقم الجوال ..."><br>
-                <input type="text" name="email" class="login_email" placeholder="البريد الالكتروني ..."><br>
-                <input type="password" name="password" class="login_pass" placeholder="كلمة المرور ..."><br>
-                <input type="password" name="repassword" class="login_pass" placeholder="إعادة كلمة المرور ..."><br>
-                <ul></ul>
-                <input type="submit" value="إضافة" name="submit" class="login_go">
-                <input type="submit" value="رجوع" name="submit1" class="login_go">
-
-            </form>
-
-
-
-
-        </div>
-
-
-  
-<!--/Content-->
 
 @using (Html.BeginForm()) 
 {

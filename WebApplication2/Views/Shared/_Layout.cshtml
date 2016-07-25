@@ -9,7 +9,9 @@
     <link rel="stylesheet" type="text/css" href="~/css/slicebox.css">
     <link rel="stylesheet" type="text/css" href="~/css/custom.css">
     <link rel="stylesheet" type="text/css" href="~/css/skins/blue.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/jquery-ui.min.css">
     <script type="text/javascript" src="~/js/jquery.js"></script>
+    <script type="text/javascript" src="~/scripts/jquery-ui.min.js"></script>
 </head>
 <body>
     <div id="Wrapper">
@@ -64,6 +66,14 @@
                 <!--/Header-->
                 <div id="Body">
                     <div id="Content">
+                        @if (TempData["Success"] != null)
+                        {
+                            <p class="alert alert-success">@TempData["Success"].ToString()</p>
+                        }
+                        @if (TempData["fail"] != null)
+                        {
+                            <p class="alert alert-warning">@TempData["fail"].ToString()</p>
+                        }
                         @RenderBody()
                     </div>
                     <div id="Sidebar">

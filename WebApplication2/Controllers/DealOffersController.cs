@@ -39,7 +39,7 @@ namespace WebApplication2.Controllers
         // GET: DealOffers/Create
         public ActionResult Create()
         {
-            ViewBag.UserID = new SelectList(db.user, "UserID", "Username");
+            TempData["userid"] = Session["userid"];
             return View();
         }
 
@@ -47,18 +47,31 @@ namespace WebApplication2.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DealOfferID,Currency,Price,Weight,ArrivalCity,DepartureCity,ArrivalTime,DepartureTime,ArrivalDate,DepartureDate,ReceiveMethod,DeliveryMethod,Flexibility,UserID")] DealOffer dealOffer)
+        public ActionResult Create(CreateDealOffers model)
         {
-            if (ModelState.IsValid)
-            {
-                db.DealOffer.Add(dealOffer);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            var dealofferOBJ = new DealOffer() { 
+            
+                ArrivalCity = model.ArrivalCity1,
+                ArrivalDate = model.ArrivalDate1,
+                ArrivalTime = model.ArrivalTime1,
+                Currency = model.Currency1,
+                DeliveryMethod = model.DeliveryMethod1,
+                ReceiveMethod = model.ReceiveMethod1,
+                DepartureCity = model.DepartureCity1,
+                DepartureDate = model.DepartureDate1,
+                DepartureTime = model.DepartureTime1,
+                Flexibility = model.Flexibility1,
+                Price = model.Price1,
+                Weight = model.Weight1,
+                UserID = Int16.Parse(Session["userid"].ToString()),
 
-            ViewBag.UserID = new SelectList(db.user, "UserID", "Username", dealOffer.UserID);
-            return View(dealOffer);
+        };
+                db.DealOffer.Add(dealofferOBJ);
+                db.SaveChanges();
+            TempData["arrivaldate"] = model.ArrivalDate1;
+                return RedirectToAction("Index","users");
+
+
         }
 
         // GET: DealOffers/Edit/5

@@ -1,63 +1,10 @@
 ﻿@model WebApplication2.Models.Admin
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+    ViewBag.Title = "Details";
 }
 
-
-
-@if (Session["AdminID"] == null)
-{
-    Response.Redirect(Url.Action("index", "home", null));
-}
-
-
-<div id="Content">
-
-    <div id="nav-dots" class="nav-dots"> <span class="nav-dot-current"></span> <span></span> <span></span> <span></span> <span></span></div>
-    <div class="slider_shadow"></div>
-    <div class="spacer_content">
-       
-        <h1> يرجى اختيار السجلات المراد تعديلها:</h1>
-        <table class="pure-table-odd">
-            <thead>
-                <tr>
-                    <th>الرقم التسلسلي</th>
-                    <th>اسم المستخدم</th>
-                    <th>البريد الالكتروني</th>
-                    <th>رقم الجوال</th>
-                    <th></th>
-                </tr>
-            </thead>
-
-
-          
-
-            <tbody>
-                <form action="modify.php" method="post">
-                    <tr class="pure-table-odd">
-                        <td>@Html.DisplayNameFor(model => model.Password)</td>
-                        <td>@Html.DisplayFor(model => model.Password)</td>
-                        <td>@Html.DisplayNameFor(model => model.City)</td>
-                        <td>@Html.DisplayFor(model => model.City)</td>
-                        <td><a href='modify.php?id=$ID'> تعديل </a>></td>
-                    </tr>
-                </form>
-
-
-
-              
-            </tbody>
-        </table>
-
-
-     
-
-    </div>
-</div>
-
-<!--/Content-->
+<h2>Details</h2>
 
 <div>
     <h4>Admin</h4>

@@ -1,64 +1,10 @@
 ﻿@model WebApplication2.Models.Admin
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+    ViewBag.Title = "Edit";
 }
 
-
-
-@if (Session["AdminID"] == null)
-{
-    Response.Redirect(Url.Action("index", "home", null));
-}
-
-
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
-}
-
-
-
-@if (Session["AdminID"] == null)
-{
-    Response.Redirect(Url.Action("index", "home", null));
-}
-
-<div id="Content">
-
-
-    <h2> الرجاء ادخال البيانات المراد تعديها: </h2>
-    <form action="DoAddUser.php" method="post">
-        <input type="text" name="name" class="login_email"  value="@Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })"><br>
-        <input type="text" name="mobileNumber" class="login_email" value=" @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })"><br>
-        <input type="text" name="email" class="login_email" value=""><br>
-        <input type="text" name="Mobile" class="login_email" value="@Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })"><br>
-        <input type="password" name="password" class="login_pass" value=" @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })"><br>
-        <input type="password" name="repassword" class="login_pass" value=" @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })"><br>
-        <input type="text" name="city" class="login_pass" value=" @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-               @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" }) "><br>
-        <input type="text" name="country" class="login_pass" value="  @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" }) "><br>
-        <ul></ul>
-        <input type="submit" value="تعديل" name="submit" class="login_go">
-        <input type="submit" value="رجوع" name="submit1" class="login_go">
-
-    </form>
-
-
-
-
-</div>
-
-
-
-<!--/Content-->
+<h2>Edit</h2>
 
 
 @using (Html.BeginForm())
@@ -66,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        
+        <h4>Admin</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.AdminID)

@@ -24,9 +24,16 @@
 
             <div style="/* margin-right:12px; */margin-top:4px;/* width: 120px; */height: 110px;position: relative;background-color: #fbfbfb; solid #b8b8b8;" >
                 
-                <img src="http://d.fastcompany.net/multisite_files/fastcompany/fc_files/profile/2219225-austin-carr-profile.jpg" alt="image" style="position:     absolute; margin-left: 0px; margin-top: -18px;margin-right:0px;width: 120px; height: 120px; border: 1.5px">
              
+                @if (Model.Picture != null)
+                {
+                    <img src="~/picture/@Model.Picture" alt="image" style="position:     absolute; margin-left: 0px; margin-top: -18px;margin-right:0px;width: 120px; height: 120px; border: 1.5px">
+                }
+                else
+                {
+                    <img src="http://philosophy.ucr.edu/wp-content/uploads/2014/10/no-profile-img.gif" alt="image" style="position:     absolute; margin-left: 0px; margin-top: -18px;margin-right:0px;width: 120px; height: 120px; border: 1.5px">
 
+                }
                @if (TempData["result"].ToString() == "false")
                {
                 <div style="margin-right:140px;margin-top:3px">

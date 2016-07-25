@@ -22,24 +22,11 @@ namespace WebApplication2.Controllers
             {
                 if (valid(model.Username, model.Password))
                 {
-
+                    
                     return RedirectToAction("index", "users");
                 }
-
-                if(ModelState.IsValid)
-                {
-                    if (validAdmin(model.Username, model.Password))
-                    {
-
-                        return RedirectToAction("index", "Admins");
-                    }
-                }
-
                 ModelState.AddModelError("informationwrong", "اسم المستخدم او كلمة المرور غير صحيحة");
             }
-               
-                 
-            
             return View(model);
 
         }
@@ -60,24 +47,43 @@ namespace WebApplication2.Controllers
 
             return isvalid; 
         }
-
-
-        public Boolean validAdmin(string username, string password)
+        [HttpGet]
+        public ActionResult Register()
         {
-            bool isvalid = false;
-            var usernow = db.Admin.FirstOrDefault(u => u.username == username);
-            if (usernow != null)
-            {
-                if (usernow.Password == password)
-                {
-                    isvalid = true;
-                    Session["username"] = usernow.username;
-                    Session["AdminID"] = usernow.AdminID;
-                }
-            }
-
-            return isvalid;
+            return View();
         }
+        public ActionResult Register(RegisterModel registermodel, HttpPostedFileBase file)
+        {
+            file.SaveAs(HttpContext.Server.MapPath("~/picture/")
+                                      + file.FileName);
+
+            user newuser = new user()
+            {
+                City = registermodel.City,
+                Country = registermodel.Country,
+                Mobile = registermodel.Mobile,
+                Rating = 0,
+                Picture = file.FileName,
+                Email = registermodel.Email,
+                Password= registermodel.Password,
+                Username= registermodel.Username,
+
+            };
+            db.user.Add(newuser);
+            int x = db.SaveChanges();
+            if (x > 0)
+            {
+                TempData["Success"] = "تم إنشاء العضوية بنجاح";
+                return RedirectToAction("index");
+
+            }
+            else
+            {
+                return View();
+            }
+            
+        }
+
 
 
     }

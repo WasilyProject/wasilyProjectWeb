@@ -12,7 +12,7 @@ namespace WebApplication2.Models
         [Required]
         [Display(Name = "Username")]
         public string Username { get; set; }
-
+        
         [Required]
         [Display(Name = "Password")]
         public string Password { get; set; }
